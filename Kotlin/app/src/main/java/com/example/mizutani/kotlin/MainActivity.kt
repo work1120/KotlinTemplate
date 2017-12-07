@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        binding.model = MainViewModel("ファーストネーム", "らすとねーむ")
+        binding.model = MainViewModel()
         FlowManager.init(FlowConfig.Builder(this).build())
     }
 }
