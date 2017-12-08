@@ -7,19 +7,24 @@
         <variable
             name="model"
             type="com.example.mizutani.kotlin.domain.viewmodels.MainViewModel" />
+
+        <variable
+            name="view"
+            type="com.example.mizutani.kotlin.presentation.view.activity.MainActivity" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.mizutani.kotlin.MainActivity">
+        tools:context="com.example.mizutani.kotlin.presentation.view.activity.MainActivity">
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <EditText
                 android:id="@+id/editText"
@@ -28,7 +33,7 @@
                 android:ems="10"
                 android:hint="FirstName"
                 android:inputType="textPersonName"
-                android:text="@{model.firstName}"
+                android:text="@={model.firstName}"
                 app:layout_constraintBottom_toBottomOf="@+id/textView3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -43,7 +48,7 @@
                 android:ems="10"
                 android:hint="LastName"
                 android:inputType="textPersonName"
-                android:text="@{model.lastName}"
+                android:text="@={model.lastName}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -65,19 +70,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Button"
+                android:text="Regist"
+                android:onClick="@{view.RegistUser}"
+                app:layout_constraintBottom_toTopOf="@+id/button3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText3" />
-
-            <FrameLayout
-                android:layout_width="368dp"
-                android:layout_height="96dp"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="27dp">
-
-            </FrameLayout>
 
             <TextView
                 android:id="@+id/textView3"
@@ -89,6 +88,18 @@
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="144dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show"
+                android:onClick="@{view.Get}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
