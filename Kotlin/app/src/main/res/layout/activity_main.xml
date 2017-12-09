@@ -31,13 +31,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="FirstName"
-                android:inputType="textPersonName"
-                android:text="@={model.firstName}"
+                android:hint="UserId"
+                android:inputType="text"
+                android:text="@={model.userId}"
                 app:layout_constraintBottom_toBottomOf="@+id/textView3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="@+id/editText3"
                 app:layout_constraintTop_toTopOf="@+id/textView3" />
 
             <EditText
@@ -46,19 +44,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="LastName"
-                android:inputType="textPersonName"
-                android:text="@={model.lastName}"
+                android:hint="PassWord"
+                android:inputType="textPassword"
+                android:text="@={model.passWord}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView5"
                 app:layout_constraintTop_toBottomOf="@+id/editText" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LastName"
+                android:text="Password"
                 app:layout_constraintBottom_toBottomOf="@+id/editText3"
                 app:layout_constraintEnd_toStartOf="@+id/editText3"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -70,9 +66,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:onClick="@{() -> view.RegistUser(model)}"
                 android:text="Regist"
-                android:onClick="@{view.RegistUser}"
-                app:layout_constraintBottom_toTopOf="@+id/button3"
+                app:layout_constraintBottom_toTopOf="@+id/button2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +78,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FirstName"
+                android:text="UserId"
                 app:layout_constraintEnd_toStartOf="@+id/editText"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
@@ -90,15 +86,14 @@
                 tools:layout_editor_absoluteY="144dp" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Show"
-                android:onClick="@{view.Get}"
+                android:text="List"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button" />
         </android.support.constraint.ConstraintLayout>
 

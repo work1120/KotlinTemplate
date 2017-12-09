@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.example.mizutani.kotlin.domain.viewmodels.UserListItemModel" />
+        <import type="java.util.List"/>
+        <variable
+            name="model"
+            type="com.example.mizutani.kotlin.domain.viewmodels.UserListModel" />
+        <variable
+            name="view"
+            type="com.example.mizutani.kotlin.presentation.view.activity.UserListActivity" />
+        <variable
+            name="items"
+            type="List&lt;UserListItemModel>" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.mizutani.kotlin.presentation.view.activity.UserListActivity">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Button"
+            android:onClick="@{view.RegistUser}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ListView
+            android:id="@+id/userlist"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:items="@{items}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

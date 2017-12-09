@@ -18,9 +18,12 @@ class UserEntity : BaseModel(){
     var UserId: String = ""
 
     @Column
-    var Name: String = "DefaultName"
+    var PassWord: String = ""
+
+    @Column
+    var NickName: String = "DefaultName"
 
     @Column
     @ForeignKey(saveForeignKeyModel = false)
-    var Job: JobEntity = JobEntity()
+    var Job: JobEntity? = JobEntity()
 }
