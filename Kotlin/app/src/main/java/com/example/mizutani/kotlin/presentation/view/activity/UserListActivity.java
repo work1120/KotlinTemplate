@@ -21,6 +21,7 @@ import java.util.List;
 public class UserListActivity extends BaseActivity {
 
     public static Context context;
+    public UserListModel viewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,14 +29,22 @@ public class UserListActivity extends BaseActivity {
         context = this;
         ActivityListviewBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_listview);
         List<UserEntity> listItem = SQLite.select().from(UserEntity.class).queryList();
-        UserListModel viewModel = new UserListModel(listItem);
+        viewModel = new UserListModel(listItem);
         ListView listView = findViewById(R.id.userlist);
-        setItem(listView, viewModel.getLiteItems());
+        //setItem(listView, viewModel.getLiteItems());
 
         binding.setModel(viewModel);
         binding.setView(this);
+        binding.setItems(viewModel.getLiteItems());
 //        binding.model = viewModel;
 //        binding.view = this;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        List<UserEntity> listItem = SQLite.select().from(UserEntity.class).queryList();
+        viewModel.Update(listItem);
     }
 
     @BindingAdapter("items")
